@@ -1,0 +1,18 @@
+.registrationForm {
+  & .errorRegistration{
+    text-align: center;
+    margin: .5rem;
+    color: #a61b22;
+  }
+}
+
+.buttonBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  &__btn {
+    flex: 1;
+    width: 100%;
+  }
+}

@@ -1,0 +1,5 @@
+query getUsers($ids: [String]) {
+  getUsers(ids: $ids) {
+    _id, role, login, email
+  }
+}

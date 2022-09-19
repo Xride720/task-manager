@@ -1,0 +1,16 @@
+overwrite: true
+schema: ./src/graphql/schema.graphql
+# schema: http://localhost:5000/graphql
+# documents: ./src/**/*.qql
+generates:
+  ./src/generated/graphql.ts:
+    config:
+      enumsAsTypes: true
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+      - "typescript-mongodb"
+      # - "typescript-document-nodes"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"

@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["./src/*"],
+      "@store/*": ["./src/store/*"],
+      "@hocs/*": ["./src/hocs/*"],
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@uiKit/*": ["./src/ui-kit/*"],
+      "@services/*": ["./src/services/*"],
+      "@tools/*": ["./src/tools/*"],
+      "@generated/*": ["./src/generated/*"],
+      "@graphql/*": ["./src/graphql/*"],
+      "@types/*": ["./src/types/*"],
+      "@apollo-config/*": ["./src/apollo-config/*"]
+    },
+    "allowJs": true,
+    "target": "ES2020",
+    "lib": ["DOM", "ESNext"],
+    "module": "ES2020",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "downlevelIteration": true
+  },
+  "include": ["src", "declaration.d.ts"]
+}

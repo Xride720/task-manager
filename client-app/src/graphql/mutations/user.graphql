@@ -1,0 +1,11 @@
+mutation createUser($input: UserInput) {
+  createUser(input: $input) {
+    success
+  }
+}
+
+mutation authUser($input: AuthUserInput) {
+  authUser(input: $input) {
+    success, token
+  }
+}

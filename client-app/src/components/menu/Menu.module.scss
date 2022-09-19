@@ -1,0 +1,23 @@
+@import '@styles/variables';
+
+.menu {
+    height: calc(100% - 64px);
+    width: 9vmin;
+    max-width: 72px;
+    min-width: 50px;
+    transition: width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s, min-width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s, max-width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+}
+
+@media (max-width: $window-width) {
+    .menu {
+        max-width: calc(100vw - 100px);
+        min-width: calc(100vw - 100px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        overflow-x: auto;
+        height: 100%;
+        
+    }
+}

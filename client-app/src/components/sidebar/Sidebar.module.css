@@ -1,0 +1,2 @@
+.sidebarCont{height:100vh;width:200px;-webkit-transition:background 0.3s,width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;transition:background 0.3s,width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s}.sidebarCont .collapseBtn{width:100%;-webkit-transition:border-color 0.3s,background 0.3s,padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);transition:border-color 0.3s,background 0.3s,padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)}.sidebarCont .sidebar{height:calc(100% - 32px)}
+/*# sourceMappingURL=Sidebar.module.css.map */

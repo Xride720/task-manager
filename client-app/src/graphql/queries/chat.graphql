@@ -1,0 +1,5 @@
+query getChatTypes {
+  getChatTypes {
+    _id, value
+  }
+}

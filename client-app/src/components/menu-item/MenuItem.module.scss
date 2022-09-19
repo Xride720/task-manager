@@ -1,0 +1,84 @@
+@import '@styles/colors';
+@import '@styles/typography';
+@import '@styles/variables';
+
+.menuItem {
+    transition: border-color 0.3s, padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    &_link {
+        padding: 1rem 0 0.8rem 2rem;
+        width: 100%;
+        height: 5vmin;
+        max-height: 74px;
+        color: $neutral-gray-text;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        font-size: 16px !important;
+        border-left: 2px solid transparent;
+        &>*:not(:last-child) {
+            margin-right: 10px;
+        }
+    
+        &_label {
+            //@include menu-item-text();
+
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            letter-spacing: 0;
+            text-align: left;
+        }
+    }
+}
+.activeLink {
+    color: $white-accent !important;
+    background: linear-gradient(90deg, rgba(0, 179, 212, 0.17) 0%, rgba(0, 179, 212, 0) 100%) !important;
+    border-left: 2px solid $blue-accent;
+    &:hover {
+        path {
+            fill: $white-accent !important;
+        }
+    }
+}
+.commonLink {
+    &:hover {
+        color: $blue-accent;
+        path {
+            fill: $blue-accent !important;
+        }
+    }
+}
+
+.activeIcon {
+    path {
+        fill: $white-accent !important;
+    }
+}
+
+
+
+
+@media (max-width: $window-width) {
+    .menuItem {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex: .8;
+        &_link {
+            font-size: 0px !important;
+            padding: 0;
+            height: 100%;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+
+    .activeLink {
+        color: $white-accent !important;
+        background: linear-gradient(0deg, rgba(0, 179, 212, 0.17) 0%, rgba(0, 179, 212, 0) 100%) !important;
+        border: none;
+        border-bottom: 2px solid $blue-accent;
+        
+    }
+}

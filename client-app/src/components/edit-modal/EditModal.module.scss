@@ -1,0 +1,43 @@
+@import "@styles/variables.scss";
+
+.editModal {
+  max-height: 100vh;
+  min-width: 60vw;
+  max-width: 60vw;
+  :global {
+    & .ant-modal-content {
+      background: $deep-blue;
+    }
+    & .ant-modal-body {
+      padding: 0;
+    }
+  }
+  &_header {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 12px;
+    margin: 0;
+  }
+
+  &_creationDate, &_modifidedDate {
+    text-align: end;
+    color: $light-gray-text;
+  }
+  & .form {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $border-gray;
+    & .formMain {
+      width: 70%;
+      padding: 10px 16px;
+    }
+
+    & .formSidebar {
+      width: 30%;
+      padding: 10px 16px;
+      border-left: 1px solid $border-gray;
+    }
+  }
+
+  
+}

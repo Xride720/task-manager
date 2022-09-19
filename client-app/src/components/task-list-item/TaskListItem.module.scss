@@ -1,0 +1,54 @@
+@import "@styles/variables.scss";
+.taskListItem {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid $blue-accent;
+  border-radius: $border-radius-default;
+  min-width: 200px;
+  max-width: 90%;
+  background: $light-blue-accent;
+  position: relative;
+  margin: 10px auto;
+
+  &_title {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  &_description {
+    color: $light-gray-text;
+  }
+
+  &_buttonBlock {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 5px;
+
+    &_deleteBtn {
+      color: $red-accent;
+      &:hover {
+        background: $light-red-accent;
+      }
+    }
+
+    &_editBtn {
+      color: $blue-accent;
+      &:hover {
+        background: $hover-blue-accent;
+      }
+    }
+
+    &>* {
+      width: 1.5rem;
+      height: 1.5rem;
+      cursor: pointer;
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color .3s ease;
+    }
+  }
+}

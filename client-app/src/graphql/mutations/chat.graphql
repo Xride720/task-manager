@@ -1,0 +1,15 @@
+mutation deleteChat($input: String) {
+  deleteChat(input: $input)
+}
+
+mutation createChat($input: ChatInput) {
+  createChat(input: $input)
+}
+
+mutation deleteChatMessage($input: String) {
+  deleteChatMessage(input: $input)
+}
+
+mutation createChatMessage($input: ChatMessageInput) {
+  createChatMessage(input: $input)
+}

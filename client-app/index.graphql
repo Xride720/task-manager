@@ -1,0 +1,150 @@
+type Task @entity {
+  _id: String @id
+  title: String @column
+  description: String @column
+  creationDate: String @column
+  modifidedDate: String @column
+  state: String @column
+  orderIndex: Int @column
+  createdBy: String @column
+  modifidedBy: String @column
+  responsibleUser: String @column
+  plannedExecutionTime: String @column
+  actualExecutionTime: String @column
+}
+
+input TaskInput {
+  _id: ID
+  title: String
+  description: String
+  creationDate: String
+  modifidedDate: String
+  state: String
+  orderIndex: Int
+  createdBy: String
+  modifidedBy: String
+  responsibleUser: String
+  plannedExecutionTime: String
+  actualExecutionTime: String
+}
+
+input OrderInput {
+  order: Int
+  taskId: String
+}
+
+input TaskOrderInput {
+  orderArr: [OrderInput]
+}
+
+enum TaskState {
+  Created,
+  InWork,
+  HoldOver,
+  Completed
+}
+
+enum UserRole {
+  USER,
+  ADMIN
+}
+
+type User @entity {
+  _id: String @id
+  email: String @column
+  login: String @column
+  password: String @column
+  role: UserRole @column
+}
+
+input UserInput {
+  email: String
+  login: String!
+  password: String!
+  role: UserRole
+}
+
+input AuthUserInput {
+  login: String!
+  password: String!
+}
+
+type Role @entity {
+  _id: String @id
+  value: UserRole @column
+}
+
+input RoleInput {
+  _id: String
+  value: UserRole
+}
+
+type AuthOutput {
+  success: Boolean
+  token: String
+}
+
+enum ChatTypeEnum {
+  PRIVATE,
+  GROUP
+}
+
+type ChatType {
+  _id: String @id
+  value: ChatTypeEnum @column
+}
+
+type Chat @entity {
+  _id: String @id
+  userIds: [String] @column
+  createdBy: String @column
+  title: String @column
+  typeId: String @column
+}
+
+input ChatInput {
+  userIds: [String]
+  title: String!
+  typeId: String!
+}
+
+type ChatMessage @entity {
+  _id: String @id
+  chatId: String @column
+  createdBy: String @column
+  creationDate: String @column
+  content: String @column
+}
+
+input ChatMessageInput {
+  chatId: String
+  content: String
+}
+
+type Query {
+  getAllTasks: [Task]
+  getUsers(ids: [String]): [User]
+  getChatTypes: [ChatType]
+}
+
+type Mutation {
+  deleteTask(input: String): Int
+  updateTask(input: TaskInput): String
+  updateTaskMany(input: [TaskInput]): String
+  createTask(input: TaskInput): String
+
+  createUser(input: UserInput): AuthOutput
+  authUser(input: AuthUserInput): AuthOutput
+
+  createChat(input: ChatInput): Int
+  deleteChat(input: String): Int
+
+  createChatMessage(input: ChatMessageInput): Int
+  deleteChatMessage(input: String): Int
+}
+
+type Subscription {
+  latestTasks: [Task]
+  userChatList(userId: String): [Chat]
+  chatMessages(chatId: String): [ChatMessage]
+}

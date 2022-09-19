@@ -1,0 +1,16 @@
+subscription latestTasks {
+  latestTasks {
+    _id,
+    title,
+    description,
+    creationDate,
+    state,
+    orderIndex,
+    modifidedDate,
+    createdBy,
+    modifidedBy,
+    responsibleUser,
+    plannedExecutionTime,
+    actualExecutionTime
+  }
+}

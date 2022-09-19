@@ -1,0 +1,15 @@
+@import '@styles/variables.scss';
+
+.addButton {
+  position: absolute;
+  cursor: pointer;
+  font-size: 30px;
+  color: $hover-blue-accent;
+  padding: 10px 20px;
+  transition: color .3s ease;
+  background-color: transparent;
+  border: none;
+  &:hover {
+    color: $blue-accent;
+  }
+}

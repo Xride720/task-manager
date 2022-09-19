@@ -1,0 +1,36 @@
+@import "./variables.scss";
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.custom-scroll {
+  overflow: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+  background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  box-shadow: inset 0 0 3px 0px rgb(0, 180, 212);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+.ant-input-affix-wrapper > input.ant-input:-webkit-autofill,
+.ant-input-affix-wrapper > input.ant-input:-webkit-autofill:hover, 
+.ant-input-affix-wrapper > input.ant-input:-webkit-autofill:focus, 
+.ant-input-affix-wrapper > input.ant-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px $night-blue inset !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.85) !important;
+    caret-color: rgba(255, 255, 255, 0.85);
+}

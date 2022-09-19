@@ -1,0 +1,64 @@
+@import "@styles/variables.scss";
+.inputBlock {
+  height: fit-content;
+  position: relative;
+  background: $night-blue-09;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+
+  & .inputArea {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-width: 0;
+    padding: 7px 12px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    background-color: transparent;
+    background-image: none;
+    max-height: calc(50vh - 20px);
+    
+    &:focus {
+      border-color: none;
+      box-shadow: none;
+      outline: 0;
+    }
+  }
+
+  & .placeholder {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+    color: $light-gray;
+  }
+
+
+  & .btnArea {
+    position: absolute;
+    bottom: 6px;
+    right: 13px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+
+
+    & .btn {
+      cursor: pointer;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color .3s ease , color .3s ease;
+      color: $light-gray;
+      &:hover {
+        background: $hover-blue-accent;
+        color: $blue-accent;
+      }
+    }
+  }
+}

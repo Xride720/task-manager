@@ -1,0 +1,21 @@
+@import "@styles/variables.scss";
+.createChatModal {
+  max-height: 100vh;
+  min-width: 60vw;
+  max-width: 60vw;
+  :global {
+    & .ant-modal-content {
+      background: $deep-blue;
+    }
+    
+  }
+  &_header {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 12px;
+    margin: 0;
+  }
+  & .form {
+    border-top: 1px solid $border-gray;
+  }
+}

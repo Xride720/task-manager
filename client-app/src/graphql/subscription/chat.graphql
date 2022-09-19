@@ -1,0 +1,16 @@
+subscription userChatList($userId: String) {
+  userChatList(userId: $userId) {
+    _id,
+    title,
+    userIds,
+    createdBy
+  }
+}
+subscription chatMessages($chatId: String) {
+  chatMessages(chatId: $chatId) {
+    _id,
+    content,
+    createdBy,
+    creationDate
+  }
+}

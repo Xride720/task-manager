@@ -1,0 +1,15 @@
+mutation deleteTask($input: String) {
+  deleteTask(input: $input)
+}
+
+mutation updateTask($input: TaskInput) {
+  updateTask(input: $input)
+}
+
+mutation updateTaskMany($input: [TaskInput]) {
+  updateTaskMany(input: $input)
+}
+
+mutation createTask($input: TaskInput) {
+  createTask(input: $input)
+}

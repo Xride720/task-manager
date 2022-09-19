@@ -1,0 +1,1 @@
+export type IPair<T = string> = {[index: string]: T};

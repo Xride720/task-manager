@@ -1,0 +1,5 @@
+query getAllTasks {
+  getAllTasks {
+    _id, title, description, creationDate, state, modifidedDate, orderIndex
+  }
+}
