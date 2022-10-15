@@ -16,10 +16,9 @@ jobs:
       - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       # Build app
-      - run: yarn install
-      - run: yarn install-server
-      - run: yarn install-client
-      - run: yarn build-server
-      - run: yarn build-client
+      - run: yarn run install-server
+      - run: yarn run install-client
+      - run: yarn run build-server
+      - run: yarn run build-client
       # Deploy
       - run: cd dist && rsync -e "ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . host1820111@ftp77.hostland.ru:/home/host1820111/kolos-off.ru/htdocs/task-manager

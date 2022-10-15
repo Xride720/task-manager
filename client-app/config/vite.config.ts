@@ -9,7 +9,8 @@ const config: UserConfigFn = ({ mode, command }) => {
   return {
     root: path.resolve(__dirname, '../src'),
     build: {
-      outDir: path.resolve(__dirname, '../../dist/app')
+      outDir: path.resolve(__dirname, '../../dist/app'),
+      emptyOutDir: true
     },
     server: {
       port: 3500,
