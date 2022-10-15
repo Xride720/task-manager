@@ -31,6 +31,7 @@ const config: UserConfigFn = ({ mode, command }) => {
     },
     resolve: {
       alias: [
+        { find: 'src', replacement: '/src' },
         { find: '@assets', replacement: path.resolve(process.cwd() + '/src/assets') },
         {
           find: '@icons',
