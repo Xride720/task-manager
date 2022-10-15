@@ -9,7 +9,10 @@
     "dev-client": "cd ./client-app && concurrently \"yarn start\"  \"yarn run generate\"",
     "install-all": "yarn install && concurrently \"yarn run install-server\"  \"yarn run install-client\" -c \"bgBlue.bold,bgMagenta.bold\"",
     "install-server": "cd ./server && yarn install",
-    "install-client": "cd ./client-app && yarn install"
+    "install-client": "cd ./client-app && yarn install",
+    "build-all": "concurrently \"yarn run build-server\"  \"yarn run build-client\" -c \"bgBlue.bold,bgMagenta.bold\"",
+    "build-server": "cd ./server && yarn build",
+    "build-client": "cd ./client-app && yarn build"
   },
   "devDependencies": {
     "concurrently": "^7.3.0"
