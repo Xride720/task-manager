@@ -31,6 +31,7 @@ const config: UserConfigFn = ({ mode, command }) => {
     },
     resolve: {
       alias: [
+        { find: '@', replacement: path.resolve(process.cwd() + '/src') },
         { find: 'src', replacement: '/src' },
         { find: '@assets', replacement: path.resolve(process.cwd() + '/src/assets') },
         {
@@ -50,8 +51,7 @@ const config: UserConfigFn = ({ mode, command }) => {
         { find: '@types', replacement: path.resolve(process.cwd() + '/src/types') },
         { find: '@hocs', replacement: path.resolve(process.cwd() + '/src/hocs') },
         { find: '@routes', replacement: path.resolve(process.cwd() + '/src/routes') },
-        { find: '@apollo-config', replacement: path.resolve(process.cwd() + '/src/apollo-config') },
-        { find: '@', replacement: path.resolve(process.cwd() + '/src') }
+        { find: '@apollo-config', replacement: path.resolve(process.cwd() + '/src/apollo-config') }
       ]
     },
     test: {

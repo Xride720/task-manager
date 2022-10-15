@@ -1,6 +1,6 @@
 import React, { Suspense as _Suspense, FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from '@components/Layout';
+import { Layout } from '@components/layout';
 
 import { GO_CHAT, GO_HOME, GO_LOGIN, GO_TODO_LIST } from './constants';
 import TodoListPage from '@pages/task-list-page/TaskListPage';
