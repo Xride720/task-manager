@@ -16,6 +16,7 @@ jobs:
       - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       # Build app
+      - run: yarn install
       - run: yarn install-server
       - run: yarn install-client
       - run: yarn build-all
