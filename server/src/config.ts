@@ -13,4 +13,4 @@ export const environment = {
 };
 
 export type EnvType = "development" | "production";
-export const SECRET_KEY = process.env.TOKEN_SECRET_KEY;
+export const SECRET_KEY = process.env.TOKEN_SECRET_KEY || 'q_w_e_r_t_y_1^2^3^4^5';
