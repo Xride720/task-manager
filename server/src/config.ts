@@ -1,6 +1,6 @@
 export const PORT = 5000;
-export const mongoLogin = "login";
-export const mongoPassword = "password";
+export const mongoLogin = process.env.MONGODB_LOGIN;
+export const mongoPassword = process.env.MONGODB_PASSWORD;
 export const environment = {
   development: {
     serverURL: `http://localhost:${PORT}/`,
@@ -13,4 +13,4 @@ export const environment = {
 };
 
 export type EnvType = "development" | "production";
-export const SECRET_KEY = "SUPER_SECRET_KEY";
+export const SECRET_KEY = process.env.TOKEN_SECRET_KEY;

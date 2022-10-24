@@ -4,7 +4,7 @@ import cors from "cors";
 import { typeDefs } from "./graphql/schema";
 import { rootResolvers } from "./graphql/resolvers";
 import { ApolloServer } from "apollo-server-express";
-import { applyMiddleware, IMiddleware } from "graphql-middleware";
+import { applyMiddleware } from "graphql-middleware";
 import { WebSocketServer } from 'ws';
 import { useServer } from 'graphql-ws/lib/use/ws';
 
@@ -16,7 +16,7 @@ import {
 import { makeExecutableSchema } from '@graphql-tools/schema';
 
 import { PORT } from "./config";
-import { AuthContext, authMiddleware, getUser } from "./middleware/auth";
+import { AuthContext, authMiddleware } from "./middleware/auth";
 
 const app = express();
 const httpServer = createServer(app);
@@ -31,7 +31,6 @@ const schemaWithMiddleware = applyMiddleware(
 const wsServer = new WebSocketServer({
   server: httpServer,
   path: '/graphql',
-  
 });
 
 const serverCleanup = useServer({ schema }, wsServer);

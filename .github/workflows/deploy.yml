@@ -18,7 +18,9 @@ jobs:
       # Build app
       - run: yarn run install-server
       - run: yarn run install-client
-      - run: yarn run build-server
       - run: yarn run build-client
+      - run: yarn run build-server
       # Deploy
       - run: cd dist && rsync -e "ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . host1820111@ftp77.hostland.ru:/home/host1820111/kolos-off.ru/htdocs/task-manager
+      - run: ssh host1820111@ftp77.hostland.ru:/home/host1820111/kolos-off.ru/htdocs/task-manager/server npm install
+      - run: ssh host1820111@ftp77.hostland.ru:/home/host1820111/kolos-off.ru/htdocs/task-manager/server node index.js

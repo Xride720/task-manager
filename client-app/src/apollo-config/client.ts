@@ -4,8 +4,6 @@ import { getMainDefinition } from "@apollo/client/utilities";
 import { getAuthStorageAll } from "@services/localStorage/auth";
 import { createClient } from 'graphql-ws';
 import { onError } from "@apollo/client/link/error";
-import { AUTH_ERROR_CODE } from "./constants";
-import store from "@store";
 import { errorHandler } from "./errorHandler";
 
 const authLink = new ApolloLink((operation, forward) => {
