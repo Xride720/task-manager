@@ -44,7 +44,7 @@ export const authMiddleware: IMiddleware = async (resolve, root, args, context, 
 
 export const getUser = (token: string) => {
   try {
-    if (token) {
+    if (token && SECRET_KEY) {
       return jwt.verify(token, SECRET_KEY);
     }
     return null;
