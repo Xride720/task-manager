@@ -22,5 +22,5 @@ jobs:
       - run: yarn run build-server
       # Deploy
       - run: cd dist && rsync -e "ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . host1820111@ftp77.hostland.ru:/home/host1820111/kolos-off.ru/htdocs/task-manager
-      - run: ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no host1820111@ftp77.hostland.ru:/home/host1820111/kolos-off.ru/htdocs/task-manager/server 'npm install'
-      - run: ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no host1820111@ftp77.hostland.ru:/home/host1820111/kolos-off.ru/htdocs/task-manager/server 'node index.js'
+      - run: ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no host1820111@ftp77.hostland.ru 'cd /home/host1820111/kolos-off.ru/htdocs/task-manager/server && npm install'
+      - run: ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no host1820111@ftp77.hostland.ru 'cd /home/host1820111/kolos-off.ru/htdocs/task-manager/server && node index.js'
