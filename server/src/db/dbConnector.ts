@@ -8,7 +8,7 @@ import { taskSchema } from "./schemas/taskSchema";
 import { userSchema } from "./schemas/userSchema";
 
 const env = process.env.NODE_ENV || "development";
-console.log(env);
+console.log(env, process.env);
 /**
  * Mongoose Connection
 **/
