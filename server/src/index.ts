@@ -17,6 +17,7 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 
 import { PORT } from "./config";
 import { AuthContext, authMiddleware } from "./middleware/auth";
+import path from "path";
 
 const app = express();
 const httpServer = createServer(app);
@@ -72,9 +73,11 @@ async function start() {
   });
 }
 start();
+// app.get('*', (req, res) => {
+//   console.log(path.join(__dirname, '../../dist/index.html'));
+//   res.sendFile(path.join(__dirname, '../../dist/index.html'));
+//   // res.send(path.join(__dirname, '../../dist'));
+// });
 app.get('/', (req, res) => {
   console.log("Apollo GraphQL Express server is ready");
 });
-
-
-
