@@ -9,7 +9,7 @@
     "build": "tsc && node ./scripts/pre_deploy.js",
     "dev": "cross-env NODE_ENV=development nodemon ./src/index.ts",
     "generate": "graphql-codegen --config --watch codegen.yml",
-    "start-prod": "pm2 start index.js",
+    "start-prod": "pm2 start -f index.js",
     "stop-prod": "pm2 stop index.js"
   },
   "keywords": [],
