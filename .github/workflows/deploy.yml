@@ -23,5 +23,5 @@ jobs:
       # Deploy
       - run: cd dist && rsync -e "ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . host1820111@ftp77.hostland.ru:/home/host1820111/kolos-off.ru/htdocs/task-manager
       - run: ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no host1820111@ftp77.hostland.ru 'cd /home/host1820111/kolos-off.ru/htdocs/task-manager/server && npm install'
-      - run: ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no host1820111@ftp77.hostland.ru 'cd /home/host1820111/kolos-off.ru/htdocs/task-manager/server && pm2 delete all || echo 'clear'
+      - run: ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no host1820111@ftp77.hostland.ru 'cd /home/host1820111/kolos-off.ru/htdocs/task-manager/server && pm2 delete all || pm2 ls
       - run: ssh -p 1024 -i $HOME/.ssh/key -o StrictHostKeyChecking=no host1820111@ftp77.hostland.ru 'cd /home/host1820111/kolos-off.ru/htdocs/task-manager/server && npm run start-prod'
