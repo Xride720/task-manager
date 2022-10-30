@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const generate = () => {
   fs.copyFileSync('./package.json', '../dist/server/package.json');
-  fs.copyFileSync('./.htaccess', '../dist/server/.htaccess');
+  fs.copyFileSync('./.htaccess', '../dist/.htaccess');
 };
 
 generate();
