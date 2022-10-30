@@ -10,7 +10,7 @@
     "dev": "cross-env NODE_ENV=development nodemon ./src/index.ts",
     "generate": "graphql-codegen --config --watch codegen.yml",
     "start-prod": "pm2 start -f index.js",
-    "stop-prod": "pm2 stop index.js"
+    "clear-prod": "pm2 stop all && pm2 delete all"
   },
   "keywords": [],
   "author": "",

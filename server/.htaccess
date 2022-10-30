@@ -1,6 +1,6 @@
 PassengerAppRoot /home/host1820111/kolos-off.ru/htdocs/task-manager/server
 PassengerAppType node
 PassengerStartupFile index.js
-PassengerNodejs /home/host1820111/node/bin/node
+PassengerNodejs /home/host1820111/.nvm/versions/node/v16.18.0/bin/node
 PassengerRestartDir /home/host1820111/kolos-off.ru/nodejs_tmp/www
 PassengerFriendlyErrorPages on
