@@ -63,7 +63,7 @@ async function start() {
   await server.start();
   server.applyMiddleware({ app });
 
-  httpServer.listen(80, () => {
+  httpServer.listen(5000, () => {
     console.log(
       `🚀 Query endpoint ready at http://localhost${server.graphqlPath}`
     );
