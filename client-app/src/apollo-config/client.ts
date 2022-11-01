@@ -22,12 +22,15 @@ const authLink = new ApolloLink((operation, forward) => {
 
 const errorLink = onError(errorHandler);
 
+const protocolHttp = import.meta.env.NODE_ENV === 'production' ? 'https' : 'http';
+const protocolWs = import.meta.env.NODE_ENV === 'production' ? 'wss' : 'ws';
+
 const httpLink = new HttpLink({
-  uri: `http://${window.location.hostname}/graphql`
+  uri: `${protocolHttp}://${window.location.hostname}/graphql`
 });
 
 const wsLink = new GraphQLWsLink(createClient({
-  url: `ws://${window.location.hostname}/graphql`,
+  url: `${protocolWs}://${window.location.hostname}/graphql`,
   lazy: true,
   onNonLazyError: (error) => {
     console.error(error);
