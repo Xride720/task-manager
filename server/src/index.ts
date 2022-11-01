@@ -15,7 +15,7 @@ import {
 } from "apollo-server-core";
 import { makeExecutableSchema } from '@graphql-tools/schema';
 
-import { PORT } from "./config";
+// import { PORT } from "./config";
 import { AuthContext, authMiddleware } from "./middleware/auth";
 import path from "path";
 
@@ -63,12 +63,12 @@ async function start() {
   await server.start();
   server.applyMiddleware({ app });
 
-  httpServer.listen(PORT, () => {
+  httpServer.listen(null, () => {
     console.log(
-      `🚀 Query endpoint ready at http://localhost:${PORT}${server.graphqlPath}`
+      `🚀 Query endpoint ready at http://localhost${server.graphqlPath}`
     );
     console.log(
-      `🚀 Subscription endpoint ready at ws://localhost:${PORT}${server.graphqlPath}`
+      `🚀 Subscription endpoint ready at ws://localhost${server.graphqlPath}`
     );
   });
 }

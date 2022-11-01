@@ -23,11 +23,11 @@ const authLink = new ApolloLink((operation, forward) => {
 const errorLink = onError(errorHandler);
 
 const httpLink = new HttpLink({
-  uri: `http://${window.location.hostname}:5000/graphql`
+  uri: `http://${window.location.hostname}/graphql`
 });
 
 const wsLink = new GraphQLWsLink(createClient({
-  url: `ws://${window.location.hostname}:5000/graphql`,
+  url: `ws://${window.location.hostname}/graphql`,
   lazy: true,
   onNonLazyError: (error) => {
     console.error(error);

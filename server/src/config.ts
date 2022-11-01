@@ -1,13 +1,13 @@
-export const PORT = 5000;
+// export const PORT = 5000;
 export const mongoLogin = process.env.MONGODB_LOGIN;
 export const mongoPassword = process.env.MONGODB_PASSWORD;
 export const environment = {
   development: {
-    serverURL: `http://localhost:${PORT}/`,
+    // serverURL: `http://localhost:${PORT}/`,
     dbString: `mongodb://localhost:27017/Project_rs`
   },
   production: {
-      serverURL: `http://localhost:${PORT}/`,
+      // serverURL: `http://localhost:${PORT}/`,
       dbString: `mongodb+srv://${mongoLogin}:${mongoPassword}@clustertest.zsjvl.mongodb.net/?retryWrites=true&w=majority`
   }
 };
