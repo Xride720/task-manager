@@ -22,8 +22,8 @@ const authLink = new ApolloLink((operation, forward) => {
 
 const errorLink = onError(errorHandler);
 
-const protocolHttp = import.meta.env.NODE_ENV === 'production' ? 'https' : 'http';
-const protocolWs = import.meta.env.NODE_ENV === 'production' ? 'wss' : 'ws';
+const protocolHttp = import.meta.env.MODE === 'staging' ? 'https' : 'http';
+const protocolWs = import.meta.env.MODE === 'staging' ? 'wss' : 'ws';
 
 const httpLink = new HttpLink({
   uri: `${protocolHttp}://${window.location.hostname}:5000/graphql`
