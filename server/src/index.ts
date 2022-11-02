@@ -73,11 +73,10 @@ async function start() {
   });
 }
 start();
-app.get('*', (req, res) => {
-  console.log(path.join(__dirname, '../../dist/index.html'));
-  res.sendFile(path.join(__dirname, '..', 'index.html'));
-  // res.send(path.join(__dirname, '../../dist'));
-});
-// app.get('/', (req, res) => {
-//   console.log("Apollo GraphQL Express server is ready");
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '..', 'index.html'));
+//   // res.send(path.join(__dirname, '../../dist'));
 // });
+app.get('/', (req, res) => {
+  console.log("Apollo GraphQL Express server is ready");
+});
