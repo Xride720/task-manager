@@ -11,7 +11,6 @@ export const chatSubscriptions: SubscriptionResolvers = {
       return pubsub.asyncIterator([ CHAT_EVENT ]);
     }, (payload, variables) => payload.userId === variables.userId),
     resolve: async function (payload : any) {
-
       const result: Chat[] = await Chats.find({
         userIds: { $all: [ payload.userId ] }
       });

@@ -147,6 +147,11 @@ export type Query = {
 };
 
 
+export type QueryGetAllTasksArgs = {
+  userId?: InputMaybe<Scalars['String']>;
+};
+
+
 export type QueryGetUsersArgs = {
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
@@ -172,6 +177,11 @@ export type Subscription = {
 
 export type SubscriptionChatMessagesArgs = {
   chatId?: InputMaybe<Scalars['String']>;
+};
+
+
+export type SubscriptionLatestTasksArgs = {
+  userId?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -457,7 +467,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  getAllTasks?: Resolver<Maybe<Array<Maybe<ResolversTypes['Task']>>>, ParentType, ContextType>;
+  getAllTasks?: Resolver<Maybe<Array<Maybe<ResolversTypes['Task']>>>, ParentType, ContextType, Partial<QueryGetAllTasksArgs>>;
   getChatTypes?: Resolver<Maybe<Array<Maybe<ResolversTypes['ChatType']>>>, ParentType, ContextType>;
   getUsers?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType, Partial<QueryGetUsersArgs>>;
 };
@@ -470,7 +480,7 @@ export type RoleResolvers<ContextType = any, ParentType extends ResolversParentT
 
 export type SubscriptionResolvers<ContextType = any, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = {
   chatMessages?: SubscriptionResolver<Maybe<Array<Maybe<ResolversTypes['ChatMessage']>>>, "chatMessages", ParentType, ContextType, Partial<SubscriptionChatMessagesArgs>>;
-  latestTasks?: SubscriptionResolver<Maybe<Array<Maybe<ResolversTypes['Task']>>>, "latestTasks", ParentType, ContextType>;
+  latestTasks?: SubscriptionResolver<Maybe<Array<Maybe<ResolversTypes['Task']>>>, "latestTasks", ParentType, ContextType, Partial<SubscriptionLatestTasksArgs>>;
   userChatList?: SubscriptionResolver<Maybe<Array<Maybe<ResolversTypes['Chat']>>>, "userChatList", ParentType, ContextType, Partial<SubscriptionUserChatListArgs>>;
 };
 
@@ -633,8 +643,8 @@ export const GetChatTypes = gql`
 }
     `;
 export const GetAllTasks = gql`
-    query getAllTasks {
-  getAllTasks {
+    query getAllTasks($userId: String) {
+  getAllTasks(userId: $userId) {
     _id
     title
     description
@@ -676,8 +686,8 @@ export const ChatMessages = gql`
 }
     `;
 export const LatestTasks = gql`
-    subscription latestTasks {
-  latestTasks {
+    subscription latestTasks($userId: String) {
+  latestTasks(userId: $userId) {
     _id
     title
     description

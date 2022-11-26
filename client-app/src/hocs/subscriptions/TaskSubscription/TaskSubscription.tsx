@@ -4,6 +4,7 @@ import { useLatestTasksSubscription } from "@graphql/subscription/__generated__/
 import { TaskSubscriptionPropsType } from "./model";
 import { Task } from "@generated/graphql";
 import { sortTask } from "@pages/task-list-page/helpers";
+import store from "@store";
 
 const TaskSubscription: FC<TaskSubscriptionPropsType> = (props) => {
   const { 
@@ -12,8 +13,10 @@ const TaskSubscription: FC<TaskSubscriptionPropsType> = (props) => {
     className: __className
   } = props;
 
+  const { userId } = store.AuthStore;
+  
   const { data, loading } = useLatestTasksSubscription({
-    variables: {},
+    variables: { userId },
   });
 
   useEffect(() => {

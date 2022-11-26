@@ -21,6 +21,7 @@ export default class AuthStore {
   @action refreshAuth = (email: string, token: string) => {
     this.state.email = email;
     this.state.token = token;
+    this.state.tokenInfo = parseJwt(token);
     setAuthStorage({
       token,
       email

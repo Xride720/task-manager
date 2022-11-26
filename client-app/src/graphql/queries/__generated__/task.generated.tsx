@@ -3,15 +3,17 @@ import * as SchemaTypes from '../../../generated/graphql';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
-export type GetAllTasksQueryVariables = SchemaTypes.Exact<{ [key: string]: never; }>;
+export type GetAllTasksQueryVariables = SchemaTypes.Exact<{
+  userId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars['String']>;
+}>;
 
 
 export type GetAllTasksQuery = { __typename?: 'Query', getAllTasks?: Array<{ __typename?: 'Task', _id?: string | null, title?: string | null, description?: string | null, creationDate?: string | null, state?: string | null, modifidedDate?: string | null, orderIndex?: number | null } | null> | null };
 
 
 export const GetAllTasksDocument = gql`
-    query getAllTasks {
-  getAllTasks {
+    query getAllTasks($userId: String) {
+  getAllTasks(userId: $userId) {
     _id
     title
     description
@@ -35,6 +37,7 @@ export const GetAllTasksDocument = gql`
  * @example
  * const { data, loading, error } = useGetAllTasksQuery({
  *   variables: {
+ *      userId: // value for 'userId'
  *   },
  * });
  */

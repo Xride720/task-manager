@@ -11,6 +11,6 @@ generates:
       - "typescript-resolvers"
       - "typescript-mongodb"
       # - "typescript-document-nodes"
-  ./graphql.schema.json:
-    plugins:
-      - "introspection"
+  # ./graphql.schema.json:
+  #   plugins:
+  #     - "introspection"

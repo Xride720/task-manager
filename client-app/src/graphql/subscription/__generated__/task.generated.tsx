@@ -3,15 +3,17 @@ import * as SchemaTypes from '../../../generated/graphql';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
-export type LatestTasksSubscriptionVariables = SchemaTypes.Exact<{ [key: string]: never; }>;
+export type LatestTasksSubscriptionVariables = SchemaTypes.Exact<{
+  userId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars['String']>;
+}>;
 
 
 export type LatestTasksSubscription = { __typename?: 'Subscription', latestTasks?: Array<{ __typename?: 'Task', _id?: string | null, title?: string | null, description?: string | null, creationDate?: string | null, state?: string | null, orderIndex?: number | null, modifidedDate?: string | null, createdBy?: string | null, modifidedBy?: string | null, responsibleUser?: string | null, plannedExecutionTime?: string | null, actualExecutionTime?: string | null } | null> | null };
 
 
 export const LatestTasksDocument = gql`
-    subscription latestTasks {
-  latestTasks {
+    subscription latestTasks($userId: String) {
+  latestTasks(userId: $userId) {
     _id
     title
     description
@@ -40,6 +42,7 @@ export const LatestTasksDocument = gql`
  * @example
  * const { data, loading, error } = useLatestTasksSubscription({
  *   variables: {
+ *      userId: // value for 'userId'
  *   },
  * });
  */

@@ -1,5 +1,5 @@
-subscription latestTasks {
-  latestTasks {
+subscription latestTasks($userId: String) {
+  latestTasks(userId: $userId) {
     _id,
     title,
     description,

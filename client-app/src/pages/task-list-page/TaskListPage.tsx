@@ -36,7 +36,7 @@ const TaskListPage: FC<TodoListPageProps & UserQueryChildrenPropsType> = observe
     updateTaskMany,
     createTask
   } = useTaskControl(items, setItems);
-  const { userId } = store.AuthStore;
+
   const { modalProps } = store.TaskListStore.state;
   const { 
     setModalProps
