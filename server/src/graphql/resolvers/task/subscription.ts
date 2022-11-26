@@ -7,18 +7,23 @@ export const taskSubscriptions: SubscriptionResolvers = {
   latestTasks: {
     // @ts-ignore
     subscribe: withFilter((_, args) => {
-      setTimeout(() => pubsub.publish(LATEST_TASKS, { userId: args.userId }));
+      setTimeout(() => pubsub.publish(LATEST_TASKS, {
+        userId: args.userId,
+        availableUserIds: [args.userId]
+      }));
       return pubsub.asyncIterator([ LATEST_TASKS ]);
-    }, (payload, variables) => payload.userId === variables.userId),
-    resolve: async function (payload: any) {
+    }, (payload, variables) => {
+      return payload.userId === variables.userId || payload.availableUserIds.includes(variables.userId);
+    }),
+    resolve: async function (payload: any, variables: any) {
       /** доступ к задаче имеет только создатель и ответственный */
       const result: Task[] = await Tasks.find({
         $or: [
           {
-            createdBy: payload.userId
+            createdBy: variables.userId
           },
           {
-            responsibleUser: payload.userId
+            responsibleUser: variables.userId
           }
         ]
       });

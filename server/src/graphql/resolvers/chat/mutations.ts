@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import { Context } from "vm";
-import { CHAT_EVENT, CHAT_MESSAGE_EVENT, LATEST_TASKS, pubsub } from "..";
+import { CHAT_EVENT, CHAT_MESSAGE_EVENT, pubsub } from "..";
 import { ChatMessages, Chats } from "../../../db/dbConnector";
 import { MutationResolvers } from "../../../generated/graphql";
 
